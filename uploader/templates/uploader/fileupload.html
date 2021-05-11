@@ -1,0 +1,15 @@
+{% extends "basesites/base.html" %}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+
+{% block header%}
+    <h2>Upload file</h2>
+{% endblock header%}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-secondary btn-lg">Upload</button>
+    </form>
+{% endblock content %}

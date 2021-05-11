@@ -1,0 +1,35 @@
+{% extends "basesites/base.html" %}
+{% load bootstrap3 %}
+
+{% block header%}
+    <h2>Files</h2>
+{% endblock header%}
+
+{% block content %}
+    <table class="table">
+        <thread>
+            <tr>
+                <th>Name</th>
+                <th>Download</th>
+                <th>Delete</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for file in files %}
+                <tr>
+                    <td>{{ file.name }}</td>
+                    <td>
+                        <a href="{{ file.file.url }}" class="btn btn-primary btn-sm">Download</a> 
+ <!--                   <a href="https://www.youtube.com/watch?v=-15VC4Yxzys&feature=youtu.be&t=14" class="btn btn-primary btn-sm">Download</a> -->
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'uploader:deletefile' file.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>    
+{% endblock content %}
