@@ -38,7 +38,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     {% if user.is_authenticated %}
-        <a class="navbar-brand" href={% url 'uploader:filelist' %}>Logging Application</a>
+        <a class="navbar-brand" href={% url 'basesites:index' %}>Logging Application</a>
     {% else %}
         <a class="navbar-brand" href={% url 'basesites:index' %}>Logging Application</a>
     {% endif %}
@@ -50,6 +50,7 @@
                     {% if user.is_authenticated %}
                         <li class="nav-item active"><a class="nav-link">Hello, {{ user.username }}.</a></li>
                         <li class="nav-item "><a class="nav-link" href="{% url 'uploader:fileupload' %}">Upload</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'uploader:filelist' %}">Download</a></li>
                         <li class="nav-item "><a class="nav-link" href="{% url 'users:logout' %}">Logout</a></li>
                     {% else %}
                         <li class="nav-item "><a class="nav-link" href="{% url 'users:register' %}">Sign Up</a></li>

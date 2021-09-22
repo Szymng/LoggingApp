@@ -20,7 +20,7 @@
                     <td>{{ file.name }}</td>
                     <td>
                         <a href="{{ file.file.url }}" class="btn btn-primary btn-sm">Download</a> 
- <!--                   <a href="https://www.youtube.com/watch?v=-15VC4Yxzys&feature=youtu.be&t=14" class="btn btn-primary btn-sm">Download</a> -->
+                        {% comment %} <a href="https://www.youtube.com/watch?v=-15VC4Yxzys&feature=youtu.be&t=14" class="btn btn-primary btn-sm">Download</a> {% endcomment %}
                     </td>
                     <td>
                         <form method="post" action="{% url 'uploader:deletefile' file.pk %}">
